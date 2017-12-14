@@ -5,7 +5,7 @@ import numpy as np
 import ply.lex as lex
 
 from main import Karel
-from utils import pprint, timeout
+from utils import pprint, timeout, get_rng
 
 def dummy():
     pass
@@ -78,11 +78,7 @@ class KarelParser(Parser):
         self.min_int = min_int
         self.max_int = max_int
 
-        if rng is None:
-            self.rng = np.random.RandomState(1)
-        else:
-            self.rng = rng
-
+        self.rng = get_rng(rng)
 
     #########
     # lexer

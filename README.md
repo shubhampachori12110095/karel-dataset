@@ -56,7 +56,7 @@ for input, output, code in zip(data['inputs'], data[outputs'], data['codes']):
 
 To generate programs only as text:
 
-    $ python generate.py --data_dir=data --max_depth=5 --mode=text
+    $ python generate.py --data_dir=data --max_depth=5 --mode=text --beautify=True
 
 and it will generate `data/train.txt`, `data/test.txt` and `data/val.txt` that contain codes like:
 

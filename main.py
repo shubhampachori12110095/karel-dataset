@@ -7,7 +7,7 @@ import numpy as np
 from collections import Counter
 
 from hero import Hero
-from utils import Tcolors
+from utils import Tcolors, get_rng
 
 def draw2d(array):
     print("\n".join(["".join(["#" if val > 0 else "." for val in row]) for row in array]))
@@ -57,10 +57,7 @@ class Karel(object):
             max_marker_in_cell=1, debug=False):
 
         self.debug = debug
-        if rng is None:
-            self.rng = np.random.RandomState(123)
-        else:
-            self.rng = rng
+        self.rng = get_rng(rng)
 
         self.markers = []
         if world_path is not None:

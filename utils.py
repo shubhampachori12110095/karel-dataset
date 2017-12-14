@@ -1,8 +1,13 @@
 import os
 import errno
 import signal
+import numpy as np
 from functools import wraps
 from pyparsing import nestedExpr
+
+
+def str2bool(v):
+    return v.lower() in ('true', '1')
 
 class Tcolors:
     CYAN = '\033[1;30m'
@@ -69,3 +74,8 @@ def makedirs(path):
     if not os.path.exists(path):
         print(" [*] Make directories : {}".format(path))
         os.makedirs(path)
+
+def get_rng(rng, seed=123):
+    if rng is None:
+        rng = np.random.RandomState(seed)
+    return rng
